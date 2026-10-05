@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GarageLog - mockup</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>GarageLog</h1>
+    <p>Ține evidența reparațiilor, a reviziilor și a modificărilor făcute mașinii tale.</p>
+    <p class="app-count">3 intervenții, dintre care 2 programate</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Adaugă intervenție</h2>
+      <form class="item-form">
+        <label>Descriere
+          <input type="text" name="titlu" maxlength="100" required placeholder="Ex: Schimb ulei și filtre" />
+        </label>
+        <label>Tip
+          <select name="tip">
+            <option value="mentenanta">Mentenanță</option>
+            <option value="reparatie">Reparație</option>
+            <option value="modificare">Modificare</option>
+          </select>
+        </label>
+        <p class="form-hint">
+          <span class="hint-empty">Scrie o descriere ca să poți adăuga intervenția.</span>
+          <span class="hint-mentenanta">Revizie planificată, de exemplu ulei, filtre, distribuție.</span>
+          <span class="hint-reparatie">Defecțiune de remediat, de exemplu frâne, ambreiaj.</span>
+          <span class="hint-modificare">Upgrade sau tuning, de exemplu suspensie, evacuare.</span>
+        </p>
+        <button type="submit">Adaugă</button>
+      </form>
+    </section>
+
+    <section class="panel list-panel">
+      <h2>Intervențiile mele</h2>
+
+      <p class="stats">
+        <span>Programate: <b class="n-open"></b></span>
+        <span>Finalizate: <b class="n-done"></b></span>
+      </p>
+      <p class="all-done">Toate intervențiile sunt finalizate.</p>
+
+      <div class="filters" role="radiogroup" aria-label="Filtrează după tip">
+        <input type="radio" name="filtru" id="f-toate" checked />
+        <label for="f-toate">Toate</label>
+        <input type="radio" name="filtru" id="f-mentenanta" />
+        <label for="f-mentenanta">Mentenanță</label>
+        <input type="radio" name="filtru" id="f-reparatie" />
+        <label for="f-reparatie">Reparație</label>
+        <input type="radio" name="filtru" id="f-modificare" />
+        <label for="f-modificare">Modificare</label>
+      </div>
+
+      <!-- Când lista e goală: <p class="empty">Nu există nicio intervenție.</p> -->
+      <ul class="item-list">
+        <li class="item-card tip-mentenanta">
+          <div class="item-main">
+            <h3>Schimb ulei și filtre</h3>
+            <span class="badge badge-mentenanta">Mentenanță</span>
+            <details>
+              <summary>Detalii</summary>
+              <p>Data: 12.10.2026 · Kilometraj: 84.200 km · Cost: 350 lei</p>
+            </details>
+          </div>
+          <div class="item-side">
+            <label class="fav" title="Marchează ca important">
+              <input type="checkbox" aria-label="Important" />
+              <span aria-hidden="true"></span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" />
+              <span class="when-open">Programată</span>
+              <span class="when-done">Finalizată</span>
+            </label>
+          </div>
+        </li>
+
+        <li class="item-card tip-reparatie done">
+          <div class="item-main">
+            <h3>Înlocuit plăcuțe de frână</h3>
+            <span class="badge badge-reparatie">Reparație</span>
+            <details>
+              <summary>Detalii</summary>
+              <p>Data: 28.09.2026 · Kilometraj: 83.650 km · Cost: 520 lei</p>
+            </details>
+          </div>
+          <div class="item-side">
+            <label class="fav" title="Marchează ca important">
+              <input type="checkbox" aria-label="Important" />
+              <span aria-hidden="true"></span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="when-open">Programată</span>
+              <span class="when-done">Finalizată</span>
+            </label>
+          </div>
+        </li>
+
+        <li class="item-card tip-modificare">
+          <div class="item-main">
+            <h3>Montat suspensie sport</h3>
+            <span class="badge badge-modificare">Modificare</span>
+            <details>
+              <summary>Detalii</summary>
+              <p>Data: 20.10.2026 · Kilometraj: 84.500 km · Cost: 2.800 lei</p>
+            </details>
+          </div>
+          <div class="item-side">
+            <label class="fav" title="Marchează ca important">
+              <input type="checkbox" aria-label="Important" />
+              <span aria-hidden="true"></span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" />
+              <span class="when-open">Programată</span>
+              <span class="when-done">Finalizată</span>
+            </label>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">Proiect Tehnologii Web</footer>
+</body>
+</html>

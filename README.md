@@ -22,9 +22,14 @@ Sample data used across all stages:
 2. Brake pads replacement, done, repair
 3. Sport suspension installation, active, modification
 
+
 ## How to run
 
-Open `index.html` in a browser. No build step, no server.
+cd frontend
+npm install
+npm run dev
+
+Apoi deschide adresa afișată în terminal (http://localhost:5173).[cite: 20]
 
 ## AI usage
 
@@ -37,8 +42,8 @@ Details per stage: see the ai-log/ folder.
 ## Status
 
 - [x] Stage 1: static mockup
-- [ ] Stage 2: data logic in JavaScript
-- [ ] Stage 3: Vite and React project
+- [x] Stage 2: data logic in JavaScript[cite: 9]
+- [x] Stage 3: Vite and React project[cite: 20]
 
 ## Stage 1 checklist
 

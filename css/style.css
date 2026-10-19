@@ -42,11 +42,10 @@ body {
   margin: 24px auto;
   padding: 0 16px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
   gap: 24px;
   align-items: start;
 }
-
 /* Panels */
 .panel {
   background: var(--card);

@@ -57,3 +57,16 @@ Details per stage: see the ai-log/ folder.
 | S1-R6 | 2 columns on desktop, 1 under 700px                  | [style.css](https://github.com/lazaradelina25/Sistem-de-Gestionare-a-Modificarilor-Auto/blob/ce1aef9/style.css) (@media) | resize < 700px |
 | S1-R7 | visible focus, readable dark theme                   | [style.css](https://github.com/lazaradelina25/Sistem-de-Gestionare-a-Modificarilor-Auto/blob/ce1aef9/style.css) | Tab; dark mode |
 | S1-R8 | commit "Stage 1" pushed                              | [commit ce1aef9](https://github.com/lazaradelina25/Sistem-de-Gestionare-a-Modificarilor-Auto/commit/ce1aef9) | commit history |
+
+
+## Stage 4: Verification checklist
+
+| ID | Requirement | Where | How to check |
+|---|---|---|---|
+| S4-R1 | Two components in `src/components/` | `frontend/src/components/` | Open folder |
+| S4-R2 | Card receives data through props | `InterventieCard.jsx` | Read code |
+| S4-R3 | List uses `map` and `key={task.id}` | `InterventieList.jsx` | F12, Console |
+| S4-R4 | Empty list displays a message | `InterventieList.jsx` | Set array to `[]` |
+| S4-R5 | State changes the card appearance | `InterventieCard.jsx` | Check `task.gata` |
+| S4-R6 | README and AI log updated | `README.md`, `ai-log/etapa-04.md` | Read files |
+| S4-R7 | Stage 4 commit pushed to GitHub | GitHub commit history | Open commit |

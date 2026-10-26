@@ -25,7 +25,12 @@ The list of interventions is rendered dynamically using two React components:
 - `InterventieList` receives the array of interventions and renders a card for each item using `map` and a unique `key`.
 - An explicit message is displayed when the list is empty.
 
+## Stage 5: local state and events
+The list lives in React state. Checking and deleting work from the page,
+and the counters in the header follow automatically. A button in the
+header switches between light and dark mode.
+
 ## Status
 - [x] Stage 3: Vite and React project
 - [x] Stage 4: components rendered from data
-- [ ] Stage 5: local state and events
+- [x] Stage 5: local state and events

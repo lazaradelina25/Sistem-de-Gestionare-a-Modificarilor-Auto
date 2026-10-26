@@ -1,36 +1,59 @@
-# React + Vite
+# Sistem de Gestionare a Modificărilor Auto
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A web app for managing car services and modifications: maintenance, repairs and tuning work.
+It helps car owners keep a clear history of what was done to their car and what is still planned.
 
-Currently, two official plugins are available:
+## Data model
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Field    | Type         | Notes                                                  |
+| -------- | ------------ | ------------------------------------------------------ |
+| title    | text         | required, max 100 chars (e.g. "Oil and filter change") |
+| done     | boolean      | toggled from the list, default false                   |
+| type     | fixed values | maintenance, repair, modification                      |
+| category | relation     | Engine, Brakes, Suspension, Electronics                |
+| user     | relation     | the owner of the item (from week 11)                   |
 
-## React Compiler
+Extra fields: date, mileage, cost.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Sample data used across all stages:
 
-## Expanding the Oxlint configuration
+1. Oil and filter change, active, maintenance
+2. Brake pads replacement, done, repair
+3. Sport suspension installation, active, modification
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## How to run
 
+cd frontend
+npm install
+npm run dev
 
+Apoi deschide adresa afișată în terminal (http://localhost:5173)[cite: 20].
 
+## AI usage
 
-## Stage 4: components rendered from data
+| Tool            | Used for                                                                |
+| --------------- | ----------------------------------------------------------------------- |
+| Claude / Gemini | HTML/CSS for stage 1, README draft, fixing the stylesheet path, Git help |
 
-The list of interventions is rendered dynamically using two React components:
-- `InterventieCard` receives one intervention through props and displays its information.
-- `InterventieList` receives the array of interventions and renders a card for each item using `map` and a unique `key`.
-- An explicit message is displayed when the list is empty.
-
-## Stage 5: local state and events
-The list lives in React state. Checking and deleting work from the page,
-and the counters in the header follow automatically. A button in the
-header switches between light and dark mode.
+Details per stage: see the ai-log/ folder.
 
 ## Status
-- [x] Stage 3: Vite and React project
-- [x] Stage 4: components rendered from data
-- [x] Stage 5: local state and events
+
+- [x] Stage 1: static mockup
+- [x] Stage 2: data logic in JavaScript[cite: 9]
+- [x] Stage 3: Vite and React project[cite: 20]
+- [x] Stage 4: components rendered from data[cite: 12]
+- [x] Stage 5: local state and events[cite: 12]
+
+## Stage 5 checklist
+
+| ID | Requirement | Where (permalink) | How to check |
+| -- | ----------- | ----------------- | ------------ |
+| S5-R1 | list kept in useState, in App | App.jsx | read |
+| S5-R2 | toggling changes state and card look | App.jsx, InterventieCard.jsx | click a checkbox |
+| S5-R3 | delete removes the item | App.jsx, InterventieCard.jsx | click Delete |
+| S5-R4 | header counter derived, not in state | App.jsx | toggle, watch header |
+| S5-R5 | immutable updates (no push, splice, assignment) | App.jsx | read |
+| S5-R6 | light/dark toggle: state + data-theme on html | App.jsx, App.css | click the button, both system themes |
+| S5-R7 | no console warnings; README + AI log | README.md, ai-log/etapa-05.md | F12, Console |
+| S5-R8 | commit "Stage 5" pushed | commit history | commit history |

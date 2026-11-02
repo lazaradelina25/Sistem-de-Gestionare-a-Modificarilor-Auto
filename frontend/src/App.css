@@ -144,3 +144,17 @@ body {
   background: #ef4444;
   color: #fff;
 }
+
+/* Etapa 6: stări de încărcare și de eroare */
+.info {
+  color: var(--muted, #6b7280);
+}
+
+.error {
+  color: var(--mare, #d97706);
+  background: var(--error-bg, #fdf2f8);
+  border: 1px solid var(--error-border, #fbcfe8);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+

@@ -1,0 +1,9 @@
+{
+  "interventii": [
+    { "id": 1, "titlu": "Schimb filtru aer și ulei", "gata": false, "prioritate": "mare" },
+    { "id": 2, "titlu": "Resoftare Stage 1", "gata": true, "prioritate": "medie" },
+    { "id": 3, "titlu": "Înlocuire evacuare sport", "gata": false, "prioritate": "mare" },
+    { "id": 4, "titlu": "Montare suspensie reglabilă", "gata": false, "prioritate": "medie" },
+    { "id": 5, "titlu": "Verificare sistem frânare", "gata": true, "prioritate": "mica" }
+  ]
+}

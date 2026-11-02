@@ -57,3 +57,14 @@ Details per stage: see the ai-log/ folder.
 | S5-R6 | light/dark toggle: state + data-theme on html | App.jsx, App.css | click the button, both system themes |
 | S5-R7 | no console warnings; README + AI log | README.md, ai-log/etapa-05.md | F12, Console |
 | S5-R8 | commit "Stage 5" pushed | commit history | commit history |
+
+## Stage 6: data from a mock API
+The list is served by json-server from db.json. The app fetches it on load and shows a loading state and an error state.
+
+npm run api    # terminal 1, http://localhost:3001
+npm run dev    # terminal 2, http://localhost:5173
+
+## Status
+- [x] Stage 5: local state and events
+- [x] Stage 6: data from a mock API
+- [ ] Stage 7: form and validation

@@ -1,21 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InterventieList from "./components/InterventieList.jsx";
-
-// Datele inițiale ale proiectului tău
-const INTERVENTII_INITIALE = [
-  { id: 1, titlu: "Schimb ulei și filtre", gata: false, categorie: "mentenanță" },
-  { id: 2, titlu: "Înlocuire plăcuțe frână", gata: true, categorie: "reparație" },
-  { id: 3, titlu: "Instalare suspensie sport", gata: false, categorie: "modificare" },
-];
+import { fetchInterventii } from "./api.js";
 
 // Tema de pornire: cea a sistemului de operare
 function temaInitiala() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
-
+// componenta principala a aplicatiei
 export default function App() {
-  const [interventii, setInterventii] = useState(INTERVENTII_INITIALE);
+  const [interventii, setInterventii] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [tema, setTema] = useState(temaInitiala);
+
+  // Încărcarea datelor de la API la montarea componentei
+  useEffect(() => {
+    let ignore = false;
+    async function load() {
+      try {
+        const data = await fetchInterventii();
+        if (!ignore) setInterventii(data);
+      } catch (err) {
+        if (!ignore) setError(err.message);
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+    load();
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   // Funcția de comutare a stării (bifat / nebifat)
   function handleToggle(id) {
@@ -59,11 +74,22 @@ export default function App() {
       <main className="container">
         <section className="panel">
           <h2>Intervențiile mele</h2>
-          <InterventieList
-            interventii={interventii}
-            onToggle={handleToggle}
-            onDelete={handleDelete}
-          />
+
+          {loading && <p className="info">Se încarcă...</p>}
+
+          {error && (
+            <p className="error">
+              Nu am putut încărca datele: {error}. Rulează <code>npm run api</code>?
+            </p>
+          )}
+
+          {!loading && !error && (
+            <InterventieList
+              interventii={interventii}
+              onToggle={handleToggle}
+              onDelete={handleDelete}
+            />
+          )}
         </section>
       </main>
     </>

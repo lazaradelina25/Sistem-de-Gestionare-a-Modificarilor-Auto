@@ -67,12 +67,15 @@ body {
 }
 
 /* ==========================================
-   Carduri, Listă și Elemente Interactive
+   Layout pe Două Coloane & Panouri (Etapa 7)
    ========================================== */
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 30px auto;
   padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /*[cite: 6] */
+  gap: 24px;
 }
 
 .panel {
@@ -83,6 +86,57 @@ body {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
+/* ==========================================
+   Formular (Etapa 7)
+   ========================================== */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.task-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.task-form input[type="text"],
+.task-form select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+}
+
+.task-form button[type="submit"] {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.task-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+} /*[cite: 6] */
+
+.task-form input[aria-invalid="true"] {
+  border-color: #e63946;
+} /*[cite: 6] */
+
+/* ==========================================
+   Listă și Carduri (Etapa 5)
+   ========================================== */
 .task-list {
   list-style: none;
   padding: 0;
@@ -145,16 +199,25 @@ body {
   color: #fff;
 }
 
-/* Etapa 6: stări de încărcare și de eroare */
+/* ==========================================
+   Stări de Încărcare & Eroare (Etapa 6 & 7)
+   ========================================== */
 .info {
-  color: var(--muted, #6b7280);
+  color: var(--muted);
 }
 
 .error {
-  color: var(--mare, #d97706);
-  background: var(--error-bg, #fdf2f8);
-  border: 1px solid var(--error-border, #fbcfe8);
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
   border-radius: 8px;
   padding: 10px 12px;
+  font-size: 0.9rem;
 }
 
+/* Responsive: Panouri unul sub altul pe ecrane mici */
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}

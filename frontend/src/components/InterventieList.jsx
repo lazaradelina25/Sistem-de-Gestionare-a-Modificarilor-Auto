@@ -2,7 +2,11 @@ import InterventieCard from "./InterventieCard.jsx";
 
 export default function InterventieList({ interventii, onToggle, onDelete }) {
   if (interventii.length === 0) {
-    return <p className="empty">Nu există nicio intervenție.</p>;
+    return (
+      <p className="empty" data-testid="empty">
+        Nu există nicio intervenție înregistrată.
+      </p>
+    );
   }
 
   return (

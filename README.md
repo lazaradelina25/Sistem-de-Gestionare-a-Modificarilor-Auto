@@ -68,3 +68,40 @@ npm run dev    # terminal 2, http://localhost:5173
 - [x] Stage 5: local state and events
 - [x] Stage 6: data from a mock API
 - [ ] Stage 7: form and validation
+
+## Stage 7: form and validation
+Tasks/Interventions can be added from the page. The form is controlled and validated, and every change (add, toggle, delete) goes to the API before it shows up in the list.
+
+## Stage 7 checklist
+
+| Req | Description | File(s) | Action / Evidence |
+|---|---|---|---|
+| S7-R1 | controlled form: value + onChange on every field | InterventieForm.jsx | title & category controlled state |
+| S7-R2 | empty title shows an error, nothing is sent | InterventieForm.jsx | validation function prevents submit |
+| S7-R3 | added item shows in the list and survives refresh | App.jsx, api.js | createInterventie POST request |
+| S7-R4 | toggle and delete survive refresh | App.jsx, api.js | updateInterventie PATCH & deleteInterventie DELETE |
+| S7-R5 | button disabled while sending, form cleared only on success | InterventieForm.jsx | disabled attribute & reset after submit |
+| S7-R6 | tw.json and the data-testid attributes | tw.json, Card, Form, List | tw.json in root, data-testid added |
+| S7-R7 | README Stage 7 section + AI log | README.md, ai-log/etapa-07.md | updated documentation |
+| S7-R8 | commit "Stage 7" pushed | commit history | stage 7 pushed to remote |
+
+## Stage 8: routing and detail page
+Three pages behind React Router: the list, a detail page at `/interventii/:id`, and an about page, plus a 404 page. Component styles moved to CSS Modules.
+
+## Status
+[x] Stage 7: form and validation
+[x] Stage 8: routing and detail page
+[ ] Stage 9: own backend with Express
+
+## Stage 8 checklist
+
+| Req | Description | File(s) | Action / Evidence |
+|---|---|---|---|
+| S8-R1 | SPA Navigation without reload | Layout.jsx, App.jsx | NavLink to /, /despre |
+| S8-R2 | Detail page on title click | InterventieCard.jsx, InterventieDetaliuPage.jsx | Link to /interventii/:id |
+| S8-R3 | Detail page refresh & 404 handling | InterventieDetaliuPage.jsx | useParams, fetchInterventie |
+| S8-R4 | Custom 404 Page | NotFoundPage.jsx, App.jsx | Route path="*" |
+| S8-R5 | CSS Modules per component | src/components, src/pages | *.module.css files |
+| S8-R6 | data-testid & route match tw.json | Layout.jsx, Card, Pages | data-testid="nav", "detail", "not-found" |
+| S8-R7 | README Stage 8 section + AI log | README.md, ai-log/etapa-08.md | updated |
+| S8-R8 | Commit pushed | Git history | commit pushed |
